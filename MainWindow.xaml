@@ -10,7 +10,7 @@
         <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
         <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
         <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
-        <Style x:Key="TextBoxLogin" TargetType="{x:Type TextBox}">
+        <Style x:Key="TextBoxS1" TargetType="{x:Type TextBox}">
             <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
             <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
             <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
@@ -55,7 +55,7 @@
     
     
     <Grid>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="321,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="White" Style="{DynamicResource TextBoxLogin}"/>
-        
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="321,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="White" Style="{DynamicResource TextBoxS1}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="321,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="White" Style="{DynamicResource TextBoxS1}"/>
     </Grid>
 </Window>
