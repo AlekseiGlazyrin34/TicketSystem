@@ -20,9 +20,24 @@ namespace TicketSystem
     /// </summary>
     public partial class MainWindow : Window
     {
+        private History Hist;
+        private Request Req;
         public MainWindow()
         {
             InitializeComponent();
+            Hist = new History();
+            Req = new Request();
+            MainFrame.Content= Req;
+        }
+
+        private void Button_Click_Page1(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = Req;
+        }
+
+        private void Button_Click_Page2(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = Hist;
         }
     }
 }
