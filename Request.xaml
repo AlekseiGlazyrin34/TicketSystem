@@ -9,6 +9,12 @@
       Title="Request">
 
     <Grid Background="Aqua">
-        
+        <DockPanel Grid.ColumnSpan="2">
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal"  Height="47">
+                <Button Content="Создать запрос" Width="220" FontSize="20" />
+                <Button Content="Мои запросы" Width="207" FontSize="20" />
+            </StackPanel>
+            <Frame x:Name="RequestFrame" NavigationUIVisibility="Hidden" />
+        </DockPanel>
     </Grid>
 </Page>
