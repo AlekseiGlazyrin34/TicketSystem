@@ -15,17 +15,12 @@ using System.Windows.Shapes;
 
 namespace TicketSystem
 {
-    /// <summary>
-    /// Логика взаимодействия для Request.xaml
-    /// </summary>
-    public partial class Request : Page
+    
+    public partial class Account : Page
     {
-        private CreateRequest CR;
-        public Request()
+        public Account()
         {
             InitializeComponent();
-            CR = new CreateRequest();
-            RequestFrame.Content = CR;
         }
     }
 }

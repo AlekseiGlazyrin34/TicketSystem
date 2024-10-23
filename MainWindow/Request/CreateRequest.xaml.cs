@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace TicketSystem
 {
     /// <summary>
-    /// Логика взаимодействия для History.xaml
+    /// Логика взаимодействия для CreateRequest.xaml
     /// </summary>
-    public partial class History : Page
+    public partial class CreateRequest : Page
     {
-        public History()
+        public CreateRequest()
         {
             InitializeComponent();
         }
