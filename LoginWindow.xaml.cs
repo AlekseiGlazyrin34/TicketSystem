@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,15 +21,31 @@ namespace TicketSystem
     /// </summary>
     public partial class LoginWindow : Window
     {
+        static HttpClient httpClient = new HttpClient();
         public LoginWindow()
         {
+            
             InitializeComponent();
         }
-
+        private async Task SendTom()
+        {
+            var cont = LoginBox.Text;
+            StringContent content = new StringContent(cont);
+            // определяем данные запроса
+            using var request = new HttpRequestMessage(HttpMethod.Post, "https://localhost:7006/data");
+            // установка отправляемого содержимого
+            request.Content = content;
+            // отправляем запрос
+            using var response = await httpClient.SendAsync(request);
+            // получаем ответ
+            string responseText = await response.Content.ReadAsStringAsync();
+            Console.WriteLine(responseText);
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow MW = new MainWindow();
-            MW.Show();
+            SendTom();
+            //MainWindow MW = new MainWindow();
+            //MW.Show();
 
         }
     }
