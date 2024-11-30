@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,9 +21,24 @@ namespace TicketSystem
     /// </summary>
     public partial class CreateRequest : Page
     {
+        static HttpClient httpClient = new HttpClient();
         public CreateRequest()
         {
             InitializeComponent();
+        }
+
+        private async Task CrReq()
+        {
+            
+
+            var response = await UserSession.Instance.SendAuthorizedRequest(() => new HttpRequestMessage(HttpMethod.Get, "https://localhost:7006/data"));
+            Console.WriteLine(response.StatusCode+"\n"+UserSession.Instance.AccessToken);
+            //await httpClient.GetAsync("https://localhost:7006/data");
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            CrReq();
         }
     }
 }
