@@ -48,8 +48,9 @@ namespace TicketSystem
             {
                 
                 var currentWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
-                currentWindow?.Close();
                 LoginWindow lw = new LoginWindow();
+                currentWindow?.Close();
+                
                 lw.Show();
             }
 
@@ -75,6 +76,16 @@ namespace TicketSystem
             }
 
             return response;
+        }
+        public void Clear()
+        {
+             AccessToken = null;
+             RefreshToken = null;
+             Username = null;
+             JobtTitle = null;
+             Login = null;
+             Password = null;
+             Role = null;
         }
     }
 
