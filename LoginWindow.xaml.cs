@@ -54,7 +54,8 @@ namespace TicketSystem
                     PropertyNameCaseInsensitive = true
                 };
 
-                var respData = JsonSerializer.Deserialize<Dictionary<string,string>>(await response.Content.ReadAsStringAsync(), options); ;
+                Console.WriteLine( await response.Content.ReadAsStringAsync());
+                var respData = JsonSerializer.Deserialize<Dictionary<string,string>>(await response.Content.ReadAsStringAsync(), options); 
                 
                 foreach( var d in respData)
                 {
@@ -67,9 +68,11 @@ namespace TicketSystem
                 UserSession.Instance.Role = respData["role"];
                 UserSession.Instance.AccessToken = respData["token"];
                 UserSession.Instance.RefreshToken = respData["refreshToken"];
+                UserSession.Instance.UserId = Convert.ToInt32(respData["userId"]);
                 MainWindow MW = new MainWindow();
                 this.Close();
                 MW.Show();
+                
             }
             else
             {

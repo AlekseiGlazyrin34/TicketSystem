@@ -18,6 +18,7 @@ namespace TicketSystem
 
         public string AccessToken { get; set; }
         public string RefreshToken { get; set; }
+        public int UserId { get; set; }
         public string Username { get; set; }
         public string JobtTitle { get; set; }
         public string Login { get; set; }
@@ -79,13 +80,14 @@ namespace TicketSystem
         }
         public void Clear()
         {
-             AccessToken = null;
-             RefreshToken = null;
-             Username = null;
-             JobtTitle = null;
-             Login = null;
-             Password = null;
-             Role = null;
+            AccessToken = null;
+            RefreshToken = null;
+            Username = null;
+            JobtTitle = null;
+            Login = null;
+            Password = null;
+            Role = null;
+            UserId = 0;
         }
     }
 
