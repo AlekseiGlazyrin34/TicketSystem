@@ -79,7 +79,7 @@ namespace TicketSystem
                 Console.WriteLine(response.StatusCode);
             }
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             Login();
         }

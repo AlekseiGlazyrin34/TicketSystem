@@ -7,22 +7,43 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CreateRequest">
-
     <Grid Background="#FF88B0FF">
-        <Label Content="Создание запроса" HorizontalAlignment="Center" Margin="0,28,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label Content="Название проблемы" HorizontalAlignment="Left" Margin="43,72,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox x:Name="ProblemName" HorizontalAlignment="Left" Margin="242,84,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-        <Label Content="Помещение" HorizontalAlignment="Left" Margin="121,105,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox x:Name="Room" HorizontalAlignment="Left" Margin="242,118,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-        <Label Content="Приоритет" HorizontalAlignment="Left" Margin="132,134,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <ComboBox x:Name="Priority" HorizontalAlignment="Left" Margin="242,145,0,0" VerticalAlignment="Top" Width="120">
-            <TextBlock>Низкий</TextBlock>
-            <TextBlock>Средний</TextBlock>
-            <TextBlock>Высокий</TextBlock>
-        </ComboBox>
-        <Label Content="Дополнительное описание" HorizontalAlignment="Left" Margin="121,176,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox x:Name="Additional" HorizontalAlignment="Left" Margin="121,218,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="259" Height="123"/>
-        <Button Content="Создать запрос" HorizontalAlignment="Left" Margin="302,372,0,0" VerticalAlignment="Top" Width="204" Height="48" FontSize="20" Click="Button_Click"/>
+        <Label Content="Создание запроса" HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="24" Margin="0,41,0,0"/>
+        <Grid Width="338" Margin="-63,88,0,253"  HorizontalAlignment="Center" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" MaxHeight="37" />
+                <RowDefinition Height="Auto" MaxHeight="37"/>
+                <RowDefinition Height="Auto" MaxHeight="37"/>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" MaxWidth="260"/>
+                <ColumnDefinition Width="Auto" MaxWidth="265"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Content="Название проблемы" HorizontalAlignment="Left" FontSize="20" Margin="11,-2,0,0" Height="36" VerticalAlignment="Top"/>
+            <TextBox  Grid.Row="0" Grid.Column="1"  x:Name="ProblemName" HorizontalAlignment="Left" VerticalAlignment="Center"  TextWrapping="Wrap"  Width="120"/>
+            <Label Grid.Column="0" Content="Помещение" FontSize="20" Margin="89,35,0,3" Height="36" Grid.RowSpan="2"/>
+            <TextBox Grid.Row="1" Grid.Column="1" x:Name="Room" HorizontalAlignment="Center"  TextWrapping="Wrap"  VerticalAlignment="Center" Width="120"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="Приоритет" HorizontalAlignment="Left" FontSize="20" Margin="101,0,0,0" />
+            <ComboBox Grid.Row="2" Grid.Column="1" x:Name="Priority" HorizontalAlignment="Left"  VerticalAlignment="Center"  Width="120">
+                <TextBlock>Низкий</TextBlock>
+                <TextBlock>Средний</TextBlock>
+                <TextBlock>Высокий</TextBlock>
+            </ComboBox>
+
+
+        </Grid>
+        <Label Content="Дополнительное описание" HorizontalAlignment="Center"   FontSize="20" Margin="0,197,0,217"/>
+        <TextBox x:Name="Additional" HorizontalAlignment="Center"  TextWrapping="Wrap"   Width="260" Height="123" Margin="0,233,0,94" />
+        <Button x:Name="ReqButton" Width="232" Height="48" Background="#FF4B85D8" Foreground="White" FontFamily="Segoe UI" FontSize="16"  Click="ReqButton_Click" HorizontalAlignment="Center" Margin="0,376,0,26">
+            <Grid>
+                <Image x:Name="GifImage" HorizontalAlignment="Left" VerticalAlignment="Center" Width="20" Height="20" Margin="-19,0,0,0"  />
+                <Label FontSize="20" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-3,0,0">Отправить запрос</Label>
+            </Grid>
+
+        </Button>
+
 
     </Grid>
 </Page>

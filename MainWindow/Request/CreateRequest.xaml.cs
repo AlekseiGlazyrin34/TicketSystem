@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfAnimatedGif;
 
 namespace TicketSystem
 {
@@ -26,13 +27,19 @@ namespace TicketSystem
         public CreateRequest()
         {
             InitializeComponent();
+
+            var gifPath = "/images/waiting.gif";
+            var imageSource = new Uri(gifPath, UriKind.RelativeOrAbsolute);
+            ImageBehavior.SetAnimatedSource(GifImage, new System.Windows.Media.Imaging.BitmapImage(imageSource));
+            GifImage.Visibility = Visibility.Collapsed;
         }
 
         private async Task CrReq()
         {
 
-           
-            
+            ReqButton.IsEnabled = false;
+            GifImage.Visibility = Visibility.Visible;
+            await Task.Delay(2000);
             var response = await UserSession.Instance.SendAuthorizedRequest(() => {
                 var request = new HttpRequestMessage(HttpMethod.Post, "https://localhost:7006/send-request");
                 var data = new
@@ -47,11 +54,16 @@ namespace TicketSystem
                 return request;
             });
             Console.WriteLine(response.StatusCode+"\n"+UserSession.Instance.AccessToken);
-            if (response.IsSuccessStatusCode) Console.WriteLine("Отправилось");
+            if (response.IsSuccessStatusCode)
+            {
+                Console.WriteLine("Отправилось");
+                GifImage.Visibility = Visibility.Collapsed;
+                ReqButton.IsEnabled = true;
+            }
             else Console.WriteLine("Proval");
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ReqButton_Click(object sender, RoutedEventArgs e)
         {
             CrReq();
         }
