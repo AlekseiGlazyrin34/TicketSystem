@@ -10,18 +10,19 @@
 
     <Grid Background="#FF88B0FF">
         <Label Content="Создание запроса" HorizontalAlignment="Center" Margin="0,28,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label Content="Название проблемы" HorizontalAlignment="Left" Margin="43,72,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox HorizontalAlignment="Left" Margin="242,84,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-        <Label Content="Помещение" HorizontalAlignment="Left" Margin="121,105,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox HorizontalAlignment="Left" Margin="242,118,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-        <Label Content="Приоритет" HorizontalAlignment="Left" Margin="132,134,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <ComboBox HorizontalAlignment="Left" Margin="242,145,0,0" VerticalAlignment="Top" Width="120">
+        <Label Content="Название проблемы" HorizontalAlignment="Left" Margin="192,79,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox x:Name="ProblemName" HorizontalAlignment="Left" Margin="392,91,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <Label Content="Помещение" HorizontalAlignment="Left" Margin="270,112,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox x:Name="Room" HorizontalAlignment="Left" Margin="392,125,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <Label Content="Приоритет" HorizontalAlignment="Left" Margin="282,141,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <ComboBox x:Name="Priority" HorizontalAlignment="Left" Margin="392,152,0,0" VerticalAlignment="Top" Width="120">
             <TextBlock>Низкий</TextBlock>
             <TextBlock>Средний</TextBlock>
             <TextBlock>Высокий</TextBlock>
         </ComboBox>
-        <Label Content="Дополнительное описание" HorizontalAlignment="Left" Margin="121,176,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox HorizontalAlignment="Left" Margin="121,218,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="259" Height="123"/>
+        <Label Content="Дополнительное описание" HorizontalAlignment="Center" Margin="0,183,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox x:Name="Description" HorizontalAlignment="Center" Margin="0,225,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="260" Height="123"/>
+        <Button Content="Отправить" HorizontalAlignment="Center" Margin="0,373,0,0" VerticalAlignment="Top" Height="32" Width="127"/>
 
     </Grid>
 </Page>

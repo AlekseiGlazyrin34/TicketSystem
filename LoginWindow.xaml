@@ -118,7 +118,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <TextBox x:Name="LoginBox" TextAlignment="Justify" Height="37" Margin="0,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" Background="White" Style="{DynamicResource TextBoxS1}" RenderTransformOrigin="0.718,0.432" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Center" Grid.Column="1"  />
-        <TextBox Height="37" TextWrapping="Wrap" VerticalAlignment="Center" Width="188" Background="White" Style="{DynamicResource TextBoxS1}" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Center" Grid.Column="1"/>
+        <TextBox x:Name="PasswordBox" Height="37" TextWrapping="Wrap" VerticalAlignment="Center" Width="188" Background="White" Style="{DynamicResource TextBoxS1}" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Center" Grid.Column="1"/>
         <Label Content="Логин" Margin="246,139,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.164,0.548" Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
         <Label Content="Пароль" Margin="236,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.568,1.231" FontSize="16" Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
         <Button Content="Войти" Margin="0,244,0,0" VerticalAlignment="Top" Width="96" RenderTransformOrigin="-0.027,-0.65" Height="32" Background="#FF4B85D8" Foreground="White" FontFamily="Segoe UI" FontSize="16" Style="{DynamicResource LogButton}" Click="Button_Click" Grid.Column="1" HorizontalAlignment="Center"/>
