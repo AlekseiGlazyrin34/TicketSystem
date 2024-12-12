@@ -39,7 +39,7 @@ namespace TicketSystem
 
             ReqButton.IsEnabled = false;
             GifImage.Visibility = Visibility.Visible;
-            await Task.Delay(2000);
+            
             var response = await UserSession.Instance.SendAuthorizedRequest(() => {
                 var request = new HttpRequestMessage(HttpMethod.Post, "https://localhost:7006/send-request");
                 var data = new
@@ -53,14 +53,20 @@ namespace TicketSystem
                 request.Content = new StringContent(JsonSerializer.Serialize(data), Encoding.UTF8, "application/json");
                 return request;
             });
-            Console.WriteLine(response.StatusCode+"\n"+UserSession.Instance.AccessToken);
+
             if (response.IsSuccessStatusCode)
             {
                 Console.WriteLine("Отправилось");
                 GifImage.Visibility = Visibility.Collapsed;
                 ReqButton.IsEnabled = true;
             }
-            else Console.WriteLine("Proval");
+            else
+            {
+
+                Console.WriteLine("Proval "+ response.StatusCode);
+                GifImage.Visibility = Visibility.Collapsed;
+                ReqButton.IsEnabled = true;
+            }
         }
 
         private void ReqButton_Click(object sender, RoutedEventArgs e)

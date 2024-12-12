@@ -79,9 +79,11 @@ namespace TicketSystem
                 Console.WriteLine(response.StatusCode);
             }
         }
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        private async void  LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            Login();
+            LogBut.IsEnabled = false;
+            await Login();
+            LogBut.IsEnabled = true;
         }
     }
 }
