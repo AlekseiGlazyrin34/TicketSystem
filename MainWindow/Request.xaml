@@ -11,7 +11,7 @@
     <Grid Background="White">
         <DockPanel Grid.ColumnSpan="2">
             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal"  Height="47">
-                <Button Style="{DynamicResource ReqButton}" Width="200" Height="47"  Margin="100,10,0,0" FontSize="20">
+                <Button Style="{DynamicResource ReqButton}" Width="200" Height="47"  Margin="150,10,0,0" FontSize="20">
                     <Grid>
                         <TextBlock Margin="0,-8,0,9" Foreground="White">Создать запрос</TextBlock>
                     </Grid>

@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CreateRequest">
     <Grid Background="#FF88B0FF">
-        <Label Content="Создание запроса" HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="24" Margin="0,41,0,0"/>
+        <Label Content="Создание запроса" HorizontalAlignment="Left"  VerticalAlignment="Top" FontSize="24" Margin="10,10,0,0"/>
         <Grid Width="338" Margin="-63,88,0,253"  HorizontalAlignment="Center" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" MaxHeight="37" />
