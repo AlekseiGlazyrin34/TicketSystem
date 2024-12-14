@@ -62,16 +62,15 @@ namespace TicketSystem
             }
             else
             {
-
                 Console.WriteLine("Proval "+ response.StatusCode);
                 GifImage.Visibility = Visibility.Collapsed;
                 ReqButton.IsEnabled = true;
             }
         }
 
-        private void ReqButton_Click(object sender, RoutedEventArgs e)
+        private async void ReqButton_Click(object sender, RoutedEventArgs e)
         {
-            CrReq();
+            await CrReq();
         }
     }
 }

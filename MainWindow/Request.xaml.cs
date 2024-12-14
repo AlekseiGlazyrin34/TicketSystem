@@ -20,12 +20,24 @@ namespace TicketSystem
     /// </summary>
     public partial class Request : Page
     {
-        private CreateRequest CR;
+        private CreateRequest CR = new CreateRequest();
+        private MyRequests MR = new MyRequests();
         public Request()
         {
             InitializeComponent();
-            CR = new CreateRequest();
             RequestFrame.Content = CR;
+        }
+
+        private void CrReqButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (RequestFrame.Content != CR) RequestFrame.Content = CR;
+            else return;
+        }
+
+        private void MyReqButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (RequestFrame.Content != MR) RequestFrame.Content = MR;
+            else return;
         }
     }
 }

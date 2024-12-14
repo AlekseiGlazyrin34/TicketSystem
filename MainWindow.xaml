@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TicketSystem"
       mc:Ignorable="d" 
-      Height="605" Width="800"
+      MaxHeight="755" MaxWidth="800"
        >
 
     <Grid>
@@ -15,7 +15,7 @@
                 <Button Content="Запросы" Click="Button_Click_Page1" Height="62" Width="390" FontSize="20" />
                 <Button Content="Учетная запись" Click="Button_Click_Page2" Width="390" FontSize="20" />
             </StackPanel>
-            <Frame Height="497" x:Name="MainFrame" NavigationUIVisibility="Hidden" />
+            <Frame Height="647" x:Name="MainFrame" NavigationUIVisibility="Hidden" />
         </DockPanel>
 
     </Grid>

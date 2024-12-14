@@ -45,45 +45,53 @@ namespace TicketSystem
 
             var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
             // определяем данные запроса
-            var response = await httpClient.PostAsync("https://localhost:7006/login", content);
-
-            if (response.IsSuccessStatusCode)
+            try
             {
-                var options = new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                };
+                var response = await httpClient.PostAsync("https://localhost:7006/login", content);
+                if (response.IsSuccessStatusCode) {
+                    var options = new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    };
 
-                Console.WriteLine( await response.Content.ReadAsStringAsync());
-                var respData = JsonSerializer.Deserialize<Dictionary<string,string>>(await response.Content.ReadAsStringAsync(), options); 
-                
-                foreach( var d in respData)
-                {
-                    Console.WriteLine(d.Key+" "+d.Value);
+                    Console.WriteLine(await response.Content.ReadAsStringAsync());
+                    var respData = JsonSerializer.Deserialize<Dictionary<string, string>>(await response.Content.ReadAsStringAsync(), options);
+
+                    foreach (var d in respData)
+                    {
+                        Console.WriteLine(d.Key + " " + d.Value);
+                    }
+                    UserSession.Instance.Username = respData["username"];
+                    UserSession.Instance.Login = respData["login"];
+                    UserSession.Instance.Password = respData["password"];
+                    UserSession.Instance.JobtTitle = respData["jobTitle"];
+                    UserSession.Instance.Role = respData["role"];
+                    UserSession.Instance.AccessToken = respData["token"];
+                    UserSession.Instance.RefreshToken = respData["refreshToken"];
+                    UserSession.Instance.UserId = Convert.ToInt32(respData["userId"]);
+                    MainWindow MW = new MainWindow();
+                    this.Close();
+                    MW.Show();
                 }
-                UserSession.Instance.Username = respData["username"];
-                UserSession.Instance.Login = respData["login"];
-                UserSession.Instance.Password = respData["password"];
-                UserSession.Instance.JobtTitle = respData["jobTitle"];
-                UserSession.Instance.Role = respData["role"];
-                UserSession.Instance.AccessToken = respData["token"];
-                UserSession.Instance.RefreshToken = respData["refreshToken"];
-                UserSession.Instance.UserId = Convert.ToInt32(respData["userId"]);
-                MainWindow MW = new MainWindow();
-                this.Close();
-                MW.Show();
-                
+
+                if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized) 
+                {
+                    ErrorLabel.Content = "Неправильный логин или пароль";
+                }
             }
-            else
+            catch (HttpRequestException e)
             {
-                Console.WriteLine(response.StatusCode);
+                ErrorLabel.Content = "Не удалось установить соединение с сервером";
             }
         }
-        private async void  LoginButton_Click(object sender, RoutedEventArgs e)
+            
+
+        async void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             LogBut.IsEnabled = false;
             await Login();
             LogBut.IsEnabled = true;
         }
+        
     }
 }

@@ -5,25 +5,25 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TicketSystem"
       mc:Ignorable="d" d:DesignWidth="800"
-      Title="Request" Height="497">
+      Title="Request" Height="650">
  
     
     <Grid Background="White">
         <DockPanel Grid.ColumnSpan="2">
             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal"  Height="47">
-                <Button Style="{DynamicResource ReqButton}" Width="200" Height="47"  Margin="150,10,0,0" FontSize="20">
+                <Button x:Name="CrReqButton" Style="{DynamicResource ReqButton}" Width="200" Height="47"  Margin="150,10,0,0" FontSize="20" Click="CrReqButton_Click">
                     <Grid>
                         <TextBlock Margin="0,-8,0,9" Foreground="White">Создать запрос</TextBlock>
                     </Grid>
                 </Button>
-                <Button Style="{DynamicResource ReqButton}" Width="200" Height="47"  Margin="100,10,0,0" FontSize="20">
+                <Button x:Name="MyReqButton" Style="{DynamicResource ReqButton}" Width="200" Height="47"  Margin="100,10,0,0" FontSize="20" Click="MyReqButton_Click">
                     <Grid>
                         <TextBlock Margin="0,-8,0,9" Foreground="White"> Мои запросы</TextBlock>
                     </Grid>
                 </Button>
 
             </StackPanel>
-            <Frame Height="450" x:Name="RequestFrame" NavigationUIVisibility="Hidden" />
+            <Frame Height="604" x:Name="RequestFrame" NavigationUIVisibility="Hidden" />
         </DockPanel>
     </Grid>
    <Page.Resources>

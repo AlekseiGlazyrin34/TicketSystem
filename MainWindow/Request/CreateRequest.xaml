@@ -5,11 +5,11 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TicketSystem"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="800"
       Title="CreateRequest">
     <Grid Background="#FF88B0FF">
         <Label Content="Создание запроса" HorizontalAlignment="Left"  VerticalAlignment="Top" FontSize="24" Margin="10,10,0,0"/>
-        <Grid Width="338" Margin="-63,88,0,253"  HorizontalAlignment="Center" >
+        <Grid Width="338" Margin="80,62,0,426"  HorizontalAlignment="Left" VerticalAlignment="Center" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" MaxHeight="37" />
                 <RowDefinition Height="Auto" MaxHeight="37"/>
@@ -21,11 +21,11 @@
                 <ColumnDefinition Width="Auto" MaxWidth="265"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="0" Content="Название проблемы" HorizontalAlignment="Left" FontSize="20" Margin="11,-2,0,0" Height="36" VerticalAlignment="Top"/>
+            <Label Grid.Column="0" Content="Название проблемы" HorizontalAlignment="Left" FontSize="20" Margin="11,-2,0,0" Height="36" VerticalAlignment="Center"/>
             <TextBox  Grid.Row="0" Grid.Column="1"  x:Name="ProblemName" HorizontalAlignment="Left" VerticalAlignment="Center"  TextWrapping="Wrap"  Width="120"/>
-            <Label Grid.Column="0" Content="Помещение" FontSize="20" Margin="89,35,0,3" Height="36" Grid.RowSpan="2"/>
+            <Label Grid.Column="0" Content="Помещение" FontSize="20" Margin="89,35,0,3" Height="36" Grid.RowSpan="2" VerticalAlignment="Center"/>
             <TextBox Grid.Row="1" Grid.Column="1" x:Name="Room" HorizontalAlignment="Center"  TextWrapping="Wrap"  VerticalAlignment="Center" Width="120"/>
-            <Label Grid.Row="2" Grid.Column="0" Content="Приоритет" HorizontalAlignment="Left" FontSize="20" Margin="101,0,0,0" />
+            <Label Grid.Row="2" Grid.Column="0" Content="Приоритет" HorizontalAlignment="Left" FontSize="20" Margin="101,0,0,0" VerticalAlignment="Center" />
             <ComboBox Grid.Row="2" Grid.Column="1" x:Name="Priority" HorizontalAlignment="Left"  VerticalAlignment="Center"  Width="120">
                 <TextBlock>Отложенный</TextBlock>
                 <TextBlock>Срочный</TextBlock>
@@ -34,9 +34,9 @@
 
 
         </Grid>
-        <Label Content="Дополнительное описание" HorizontalAlignment="Center"   FontSize="20" Margin="0,197,0,217"/>
-        <TextBox x:Name="Additional" HorizontalAlignment="Center"  TextWrapping="Wrap"   Width="260" Height="123" Margin="0,233,0,94" />
-        <Button x:Name="ReqButton" Width="232" Height="48" Background="#FF4B85D8" Foreground="White" FontFamily="Segoe UI" FontSize="16"  Click="ReqButton_Click" HorizontalAlignment="Center" Margin="0,376,0,26">
+        <Label Content="Дополнительное описание" HorizontalAlignment="Left"   FontSize="20" Margin="424,35,0,529"/>
+        <TextBox x:Name="Additional" HorizontalAlignment="Center" VerticalAlignment="Center"  TextWrapping="Wrap"  Height="93" Width="260" Margin="305,-365,0,0" />
+        <Button x:Name="ReqButton" Width="232" Height="48" Background="#FF4B85D8" Foreground="White" FontFamily="Segoe UI" FontSize="16"  Click="ReqButton_Click" HorizontalAlignment="Center" Margin="0,179,0,373">
             <Grid>
                 <Image x:Name="GifImage" HorizontalAlignment="Left" VerticalAlignment="Center" Width="20" Height="20" Margin="-19,0,0,0"  />
                 <Label FontSize="20" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-3,0,0">Отправить запрос</Label>
