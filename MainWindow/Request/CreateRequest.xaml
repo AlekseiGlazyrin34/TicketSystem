@@ -5,45 +5,82 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TicketSystem"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="800"
+      d:DesignHeight="674" d:DesignWidth="800"
       Title="CreateRequest">
-    <Grid Background="#FF88B0FF">
+    <Grid Background="#FFF3F3D6">
+
         <Label Content="Создание запроса" HorizontalAlignment="Left"  VerticalAlignment="Top" FontSize="24" Margin="10,10,0,0"/>
-        <Grid Width="338" Margin="80,62,0,426"  HorizontalAlignment="Left" VerticalAlignment="Center" >
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" MaxHeight="37" />
-                <RowDefinition Height="Auto" MaxHeight="37"/>
-                <RowDefinition Height="Auto" MaxHeight="37"/>
 
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" MaxWidth="260"/>
-                <ColumnDefinition Width="Auto" MaxWidth="265"/>
-            </Grid.ColumnDefinitions>
-
-            <Label Grid.Column="0" Content="Название проблемы" HorizontalAlignment="Left" FontSize="20" Margin="11,-2,0,0" Height="36" VerticalAlignment="Center"/>
-            <TextBox  Grid.Row="0" Grid.Column="1"  x:Name="ProblemName" HorizontalAlignment="Left" VerticalAlignment="Center"  TextWrapping="Wrap"  Width="120"/>
-            <Label Grid.Column="0" Content="Помещение" FontSize="20" Margin="89,35,0,3" Height="36" Grid.RowSpan="2" VerticalAlignment="Center"/>
-            <TextBox Grid.Row="1" Grid.Column="1" x:Name="Room" HorizontalAlignment="Center"  TextWrapping="Wrap"  VerticalAlignment="Center" Width="120"/>
-            <Label Grid.Row="2" Grid.Column="0" Content="Приоритет" HorizontalAlignment="Left" FontSize="20" Margin="101,0,0,0" VerticalAlignment="Center" />
-            <ComboBox Grid.Row="2" Grid.Column="1" x:Name="Priority" HorizontalAlignment="Left"  VerticalAlignment="Center"  Width="120">
-                <TextBlock>Отложенный</TextBlock>
-                <TextBlock>Срочный</TextBlock>
-                <TextBlock>Критический</TextBlock>
-            </ComboBox>
+        <Border CornerRadius="10" BorderThickness="6" BorderBrush="White" Padding="0" Margin="0,25,0,0" HorizontalAlignment="Center" Width="732" Height="500">
+            <Grid Background="White" Width="720" Height="500">
 
 
-        </Grid>
-        <Label Content="Дополнительное описание" HorizontalAlignment="Left"   FontSize="20" Margin="424,35,0,529"/>
-        <TextBox x:Name="Additional" HorizontalAlignment="Center" VerticalAlignment="Center"  TextWrapping="Wrap"  Height="93" Width="260" Margin="305,-365,0,0" />
-        <Button x:Name="ReqButton" Width="232" Height="48" Background="#FF4B85D8" Foreground="White" FontFamily="Segoe UI" FontSize="16"  Click="ReqButton_Click" HorizontalAlignment="Center" Margin="0,179,0,373">
-            <Grid>
-                <Image x:Name="GifImage" HorizontalAlignment="Left" VerticalAlignment="Center" Width="20" Height="20" Margin="-19,0,0,0"  />
-                <Label FontSize="20" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-3,0,0">Отправить запрос</Label>
+                <Label Grid.Column="0" Content="Название проблемы" HorizontalAlignment="Left" FontSize="30" Margin="50,23,0,0" Height="52" VerticalAlignment="Top" Width="294"/>
+                <TextBox MaxLength="15" x:Name="ProblemName" HorizontalAlignment="Left" FontSize="24" TextWrapping="Wrap" TextAlignment="Justify" VerticalAlignment="Top" Width="200" Height="30" Margin="344,34,0,0"/>
+                <Label Grid.Column="0" Content="Помещение" FontSize="30" Margin="168,64,376,0" Height="52" VerticalAlignment="Top"/>
+                <TextBox MaxLength="15" x:Name="Room" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" TextAlignment="Justify" TextWrapping="Wrap"  Width="200" Height="30" Margin="344,75,0,0"/>
+                <Label Grid.Column="0" Content="Приоритет" HorizontalAlignment="Left" FontSize="30" Margin="182,104,0,0" VerticalAlignment="Top" Height="52" Width="162" />
+                <ComboBox x:Name="Priority" HorizontalAlignment="Left"  VerticalAlignment="Top"  Width="200" Height="30" Margin="344,119,0,0" FontSize="20">
+                    <TextBlock>Отложенный</TextBlock>
+                    <TextBlock>Срочный</TextBlock>
+                    <TextBlock>Критический</TextBlock>
+                </ComboBox>
+
+                <Label Content="Дополнительное описание" HorizontalAlignment="Center" Height="52"  FontSize="30" Margin="0,157,0,291" />
+                <TextBox FontSize="16" MaxLength="300" x:Name="Additional" HorizontalAlignment="Center" VerticalAlignment="Top"  TextWrapping="Wrap"  Height="152" Width="368" Margin="0,209,0,0" />
+                <Button Style="{DynamicResource CrReqButton}" x:Name="ReqButton" Width="308" Background="#FF4CAF50" Foreground="White" FontFamily="Segoe UI" FontSize="16"  Click="ReqButton_Click" HorizontalAlignment="Center" Height="80" Margin="0,382,0,38" >
+                    <Grid>
+                        <Image x:Name="GifImage" HorizontalAlignment="Left" VerticalAlignment="Center" Width="20" Height="20" Margin="-19,0,0,0"  />
+                        <Label FontSize="30" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-3,0,0">Отправить запрос</Label>
+                    </Grid>
+                </Button>
+
+
             </Grid>
-
-        </Button>
-
-
+        </Border>
     </Grid>
+    <Page.Resources>
+
+
+
+
+        <Style x:Key="CrReqButton" TargetType="{x:Type Button}">
+            <Setter  Property="Background" Value="#FFB5B79F"/>
+            <Setter Property="BorderBrush" Value="#FF707070"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="5" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true"  >
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RenderTransformOrigin="-0.659,0.524"/>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#5df04d"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF3C7FB1"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#FFC4E5F6"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF2C628B"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FFADB2B5"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="#FF838383"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
 </Page>

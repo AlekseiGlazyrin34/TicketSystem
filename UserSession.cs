@@ -30,7 +30,7 @@ namespace TicketSystem
         public async Task RefreshAccessToken()
         {
             var client = new HttpClient();
-            var content = new StringContent(this.RefreshToken, Encoding.UTF8, "application/json");
+            var content = new StringContent(this.RefreshToken, Encoding.UTF8, "application/plain");
 
             var response = await client.PostAsync("https://localhost:7006/refresh-token", content);
 

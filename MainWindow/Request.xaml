@@ -5,44 +5,81 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TicketSystem"
       mc:Ignorable="d" d:DesignWidth="800"
-      Title="Request" Height="650">
- 
-    
-    <Grid Background="White">
-        <DockPanel Grid.ColumnSpan="2">
-            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal"  Height="47">
-                <Button x:Name="CrReqButton" Style="{DynamicResource ReqButton}" Width="200" Height="47"  Margin="150,10,0,0" FontSize="20" Click="CrReqButton_Click">
+      Title="Request" Height="724">
+
+
+    <Grid Background="#FFF3F3D6">
+        <Line x:Name="Line1" X1="0" Y1="50.5" X2="151" Y2="50.5" Stroke="Black" StrokeThickness="1"  Panel.ZIndex="1" />
+        <Line x:Name="Line2" X1="349" Y1="50.5" X2="800" Y2="50.5" Stroke="Black" StrokeThickness="1" Panel.ZIndex="1" />
+        <Line x:Name="Line3" X1="0" Y1="50.5" X2="451" Y2="50.5" Stroke="Black" StrokeThickness="1"  Panel.ZIndex="1" Visibility="Collapsed"/>
+        <Line x:Name="Line4" X1="649" Y1="50.5" X2="800" Y2="50.5" Stroke="Black" StrokeThickness="1" Panel.ZIndex="1" Visibility="Collapsed"/>
+        <DockPanel Grid.ColumnSpan="2"  Panel.ZIndex="0">
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal"  Height="50">
+                
+                <Button x:Name="CrReqButton" Style="{DynamicResource CrReqButton}" Width="200" Height="47"  Margin="150,10,0,0" FontSize="20" Click="CrReqButton_Click">
+
                     <Grid>
-                        <TextBlock Margin="0,-8,0,9" Foreground="White">Создать запрос</TextBlock>
+                        <TextBlock x:Name="CrReqButText" Margin="0,0,0,9" Foreground="Black" FontWeight="Bold">Создать запрос</TextBlock>
                     </Grid>
                 </Button>
-                <Button x:Name="MyReqButton" Style="{DynamicResource ReqButton}" Width="200" Height="47"  Margin="100,10,0,0" FontSize="20" Click="MyReqButton_Click">
+                <Button x:Name="MyReqButton" Style="{DynamicResource MyReqButton}" Width="200" Height="47"  Margin="100,10,0,0" FontSize="20" Click="MyReqButton_Click">
                     <Grid>
-                        <TextBlock Margin="0,-8,0,9" Foreground="White"> Мои запросы</TextBlock>
+                        <TextBlock x:Name="MyReqButText" Margin="0,0,0,9" Foreground="White" FontWeight="Bold"> Мои запросы</TextBlock>
                     </Grid>
                 </Button>
 
             </StackPanel>
-            <Frame Height="604" x:Name="RequestFrame" NavigationUIVisibility="Hidden" />
+            <Frame Height="674" x:Name="RequestFrame" NavigationUIVisibility="Hidden" />
         </DockPanel>
     </Grid>
+    
    <Page.Resources>
 
 
-
-        <SolidColorBrush x:Key="Button.Static.Background" Color="#FF4B85D8"/>
-        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
-        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
-        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
-        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
-        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
-        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        
        
-        <Style x:Key="ReqButton" TargetType="{x:Type Button}">
-            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+        <Style x:Key="CrReqButton" TargetType="{x:Type Button}">
+            <Setter  Property="Background" Value="#FFB5B79F"/>
+            <Setter Property="BorderBrush" Value="#FF707070"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="5" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true"  >
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RenderTransformOrigin="-0.659,0.524"/>
+                        </Border>
+                        
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#5df04d"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF3C7FB1"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#FFC4E5F6"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF2C628B"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FFADB2B5"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="#FF838383"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="MyReqButton" TargetType="{x:Type Button}">
+            <Setter  Property="Background" Value="#FFB5B79F"/>
+            <Setter Property="BorderBrush" Value="#FF707070"/>
             <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -61,17 +98,17 @@
                                 <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                                <Setter Property="Background" TargetName="border" Value="#42a5f5"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF3C7FB1"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                                <Setter Property="Background" TargetName="border" Value="#FFC4E5F6"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF2C628B"/>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
-                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                                <Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FFADB2B5"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="#FF838383"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>

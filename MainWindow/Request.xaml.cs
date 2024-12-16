@@ -26,17 +26,47 @@ namespace TicketSystem
         {
             InitializeComponent();
             RequestFrame.Content = CR;
+            CrReqButton.Background = new SolidColorBrush(Color.FromRgb(243,243,214));
+            CrReqButton.Foreground = Brushes.Black;
+            MyReqButton.Background = new SolidColorBrush(Color.FromRgb(129, 166, 240));
+            MyReqButton.Foreground = Brushes.Black;
         }
 
         private void CrReqButton_Click(object sender, RoutedEventArgs e)
         {
-            if (RequestFrame.Content != CR) RequestFrame.Content = CR;
+            if (RequestFrame.Content != CR) {
+                CrReqButton.Background = new SolidColorBrush(Color.FromRgb(243, 243, 214));
+                CrReqButton.Foreground = Brushes.Black;
+                CrReqButText.Foreground = Brushes.Black;
+                MyReqButton.Background = new SolidColorBrush(Color.FromRgb(129, 166, 240));
+                MyReqButton.Foreground = Brushes.Black;
+                MyReqButText.Foreground=Brushes.White;
+                RequestFrame.Content = CR;
+                Line1.Visibility = Visibility.Visible;
+                Line2.Visibility = Visibility.Visible;
+                Line3.Visibility = Visibility.Hidden;
+                Line4.Visibility = Visibility.Hidden;
+            }
             else return;
+            
         }
 
         private void MyReqButton_Click(object sender, RoutedEventArgs e)
         {
-            if (RequestFrame.Content != MR) RequestFrame.Content = MR;
+            if (RequestFrame.Content != MR)
+            {
+                MyReqButton.Background = new SolidColorBrush(Color.FromRgb(243, 243, 214));
+                MyReqButton.Foreground = Brushes.Black;
+                CrReqButText.Foreground = Brushes.White;
+                CrReqButton.Background = new SolidColorBrush(Color.FromRgb(76, 175, 80));
+                CrReqButton.Foreground = Brushes.Black;
+                MyReqButText.Foreground = Brushes.Black;
+                RequestFrame.Content = MR;
+                Line1.Visibility = Visibility.Hidden;
+                Line2.Visibility = Visibility.Hidden;
+                Line3.Visibility = Visibility.Visible;
+                Line4.Visibility = Visibility.Visible;
+            }
             else return;
         }
     }
