@@ -5,69 +5,61 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TicketSystem"
       mc:Ignorable="d" 
-      Height="800"
+      Height="724"
       Width="800"
-      MaxHeight="800" MaxWidth="800">
+      MaxHeight="724" MaxWidth="800">
+    <ScrollViewer VerticalScrollBarVisibility="Visible">
+        <Grid Background="#FFF3F3D6">
 
-    <Grid Background="#FFF3F3D6">
+            <DockPanel Grid.ColumnSpan="2">
+                <StackPanel DockPanel.Dock="Top" Orientation="Horizontal"  Height="2" Width="760">
 
-        <DockPanel Grid.ColumnSpan="2">
-            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal"  Height="50" Width="760" HorizontalAlignment="Center">
 
-                <Button x:Name="backBut" Margin="0,0,0,0" Click="Button_Click_Req" Height="50" Width="50" FontSize="20" Background="#00000000" BorderBrush="#00707070" Style="{DynamicResource BackAccButton}">
-                    <Grid  Height="50" Width="50" Background="#01000000">
-                        <Image Source="\images\backarrow.png"></Image>
-                    </Grid>
-                </Button>
-                <Button x:Name="accBut" Margin="660,0,0,0" Click="Button_Click_Acc" Height="50" Width="50" FontSize="20" Background="#00000000" BorderBrush="#00707070" Style="{DynamicResource BackAccButton}">
-                    <Grid  Height="50" Width="50" Background="#01000000">
-                        <Image Source="\images\account.png"></Image>
-                    </Grid>
-                </Button>
-                
-            </StackPanel>
-            <Frame Height="724" x:Name="MainFrame" NavigationUIVisibility="Hidden" />
-        </DockPanel>
 
-    </Grid>
+                </StackPanel>
+                <Frame Height="706" x:Name="MainFrame" NavigationUIVisibility="Hidden" />
+            </DockPanel>
+
+        </Grid>
+    </ScrollViewer>
     <Window.Resources>
-    <Style x:Key="BackAccButton" TargetType="{x:Type Button}">
-        <Setter  Property="Background" Value="#00B5B79F"/>
-        <Setter Property="BorderBrush" Value="#FF707070"/>
-        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Padding" Value="1"/>
-        <Setter Property="Template">
+        <Style x:Key="BackAccButton" TargetType="{x:Type Button}">
+            <Setter  Property="Background" Value="#00B5B79F"/>
+            <Setter Property="BorderBrush" Value="#FF707070"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
 
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Border x:Name="border" CornerRadius="5" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true"  >
-                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RenderTransformOrigin="-0.659,0.524"/>
-                    </Border>
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="5" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true"  >
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RenderTransformOrigin="-0.659,0.524"/>
+                        </Border>
 
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsDefaulted" Value="true">
-                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
-                        </Trigger>
-                        <Trigger Property="IsMouseOver" Value="true">
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
                                 <Setter Property="Background" TargetName="border" Value="#00B5B79F"/>
                                 <Setter Property="BorderBrush" TargetName="border" Value="#00B5B79F"/>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="true">
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
                                 <Setter Property="Background" TargetName="border" Value="#00B5B79F"/>
                                 <Setter Property="BorderBrush" TargetName="border" Value="#00B5B79F"/>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
                                 <Setter Property="Background" TargetName="border" Value="#00B5B79F"/>
                                 <Setter Property="BorderBrush" TargetName="border" Value="#00B5B79F"/>
                                 <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="#00B5B79F"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
 </Window>

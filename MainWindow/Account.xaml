@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TicketSystem"
       mc:Ignorable="d" 
-      d:DesignHeight="724" d:DesignWidth="800"
+      d:DesignHeight="674" d:DesignWidth="800"
       Title="History" >
 
     <Grid Background="#FFF3F3D6">

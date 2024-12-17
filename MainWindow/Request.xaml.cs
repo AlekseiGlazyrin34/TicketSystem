@@ -22,6 +22,7 @@ namespace TicketSystem
     {
         private CreateRequest CR = new CreateRequest();
         private MyRequests MR = new MyRequests();
+        private Account Acc = new Account();
         public Request()
         {
             InitializeComponent();
@@ -68,6 +69,10 @@ namespace TicketSystem
                 Line4.Visibility = Visibility.Visible;
             }
             else return;
+        }
+        private void Button_Click_Acc(object sender, RoutedEventArgs e)
+        {
+            RequestFrame.Content = Acc;            
         }
     }
 }

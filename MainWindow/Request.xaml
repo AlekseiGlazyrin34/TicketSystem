@@ -7,8 +7,8 @@
       mc:Ignorable="d" d:DesignWidth="800"
       Title="Request" Height="724">
 
-
-    <Grid Background="#FFF3F3D6">
+    
+        <Grid Background="#FFF3F3D6">
         <Line x:Name="Line1" X1="0" Y1="50.5" X2="151" Y2="50.5" Stroke="Black" StrokeThickness="1"  Panel.ZIndex="1" />
         <Line x:Name="Line2" X1="349" Y1="50.5" X2="800" Y2="50.5" Stroke="Black" StrokeThickness="1" Panel.ZIndex="1" />
         <Line x:Name="Line3" X1="0" Y1="50.5" X2="451" Y2="50.5" Stroke="Black" StrokeThickness="1"  Panel.ZIndex="1" Visibility="Collapsed"/>
@@ -27,7 +27,11 @@
                         <TextBlock x:Name="MyReqButText" Margin="0,0,0,9" Foreground="White" FontWeight="Bold"> Мои запросы</TextBlock>
                     </Grid>
                 </Button>
-
+                <Button x:Name="accBut" Margin="60,0,0,0" Click="Button_Click_Acc" Height="50" Width="50" FontSize="20" Background="#00000000" BorderBrush="#00707070" Style="{DynamicResource BackAccButton}">
+                    <Grid  Height="50" Width="50" Background="#01000000">
+                        <Image Source="\images\account.png"></Image>
+                    </Grid>
+                </Button>
             </StackPanel>
             <Frame Height="674" x:Name="RequestFrame" NavigationUIVisibility="Hidden" />
         </DockPanel>
