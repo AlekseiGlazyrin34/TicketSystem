@@ -56,7 +56,11 @@ namespace TicketSystem
                 PriorityTB.Text = myreq[0].priorityName;
                 RoomTB.Text =myreq[0].room;
                 DescriptionTB.Text =  myreq[0].description;
-                if (myreq[0].username != null) ResponseTB.Text = $"От {myreq[0].username}:\n" + myreq[0].responseContent;
+                if (myreq[0].username != null)
+                {
+                    ResponseFrom.Text=myreq[0].username;
+                    ResponseTB.Text = myreq[0].responseContent;
+                }
                 else ResponseTB.Text = "";
 
             }

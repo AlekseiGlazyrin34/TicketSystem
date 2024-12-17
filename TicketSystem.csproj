@@ -95,6 +95,9 @@
     <Compile Include="MainWindow\Request\MyRequests.xaml.cs">
       <DependentUpon>MyRequests.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MainWindow\Request\AdminRequest.xaml.cs">
+      <DependentUpon>AdminRequest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserSession.cs" />
     <Compile Include="MainWindow\Account.cs">
       <DependentUpon>Account.xaml</DependentUpon>
@@ -131,6 +134,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainWindow\Request\MyRequests.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow\Request\AdminRequest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
