@@ -37,6 +37,11 @@ namespace TicketSystem
         private async Task CrReq()
         {
 
+            if (ProblemName.Text=="" || Room.Text=="" || Priority.Text == "")
+            {
+                TextError.Visibility= Visibility.Visible;
+                return;
+            }
             ReqButton.IsEnabled = false;
             GifImage.Visibility = Visibility.Visible;
             
@@ -56,9 +61,14 @@ namespace TicketSystem
 
             if (response.IsSuccessStatusCode)
             {
-                Console.WriteLine("Отправилось");
+                
                 GifImage.Visibility = Visibility.Collapsed;
                 ReqButton.IsEnabled = true;
+                ProblemName.Text = "";
+                Room.Text = "";
+                Priority.Text = "";
+                Additional.Text= "";
+                MessageBox.Show("Запрос успешно отправлен", "Запрос", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {

@@ -29,6 +29,11 @@ namespace TicketSystem
         }
         private async Task Login()
         {
+            if (LoginBox.Text=="" || PasswordBox.Text == "")
+            {
+                ErrorLabel.Content = "Поля должны быть заполнены";
+                    return;
+            }
             var loginCont = LoginBox.Text;
             var passwordCont = PasswordBox.Text;
 
@@ -41,8 +46,6 @@ namespace TicketSystem
             // создаем JsonContent
             string jsonData = JsonSerializer.Serialize(data);
             // отправляем запрос
-
-
             var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
             // определяем данные запроса
             try
@@ -57,10 +60,7 @@ namespace TicketSystem
                     Console.WriteLine(await response.Content.ReadAsStringAsync());
                     var respData = JsonSerializer.Deserialize<Dictionary<string, string>>(await response.Content.ReadAsStringAsync(), options);
 
-                    foreach (var d in respData)
-                    {
-                        Console.WriteLine(d.Key + " " + d.Value);
-                    }
+                   
                     UserSession.Instance.Username = respData["username"];
                     UserSession.Instance.Login = respData["login"];
                     UserSession.Instance.Password = respData["password"];

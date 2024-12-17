@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TicketSystem"
         mc:Ignorable="d"
-        Title="Вход в систему" Height="450" Width="800">
+        Title="Вход в систему" Height="450" Width="800" Background="#FFF3F3D6">
     <Window.Resources>
-        <SolidColorBrush x:Key="TextBox.Static.Border" Color="Blue"/>
+        <SolidColorBrush x:Key="TextBox.Static.Border" Color="Black"/>
         <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
         <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
         <Style x:Key="TextBoxS1" TargetType="{x:Type TextBox}">
@@ -62,11 +62,11 @@
         </Style>
 
         <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
-        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
-        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
-        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FFDE7F0C"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFDE7F0C"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FFDE7F0C"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFDE7F0C"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FFDE7F0C"/>
         <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
         <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
         <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
@@ -117,11 +117,11 @@
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="LoginBox" TextAlignment="Justify" Height="37" Margin="0,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" Background="White" Style="{DynamicResource TextBoxS1}" RenderTransformOrigin="0.718,0.432" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Center" Grid.Column="1"  />
-        <TextBox x:Name="PasswordBox" Height="37" TextWrapping="Wrap" VerticalAlignment="Center" Width="188" Background="White" Style="{DynamicResource TextBoxS1}" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Center" Grid.Column="1"/>
+        <TextBox MaxLength="19" x:Name="LoginBox" TextAlignment="Justify" Height="37" Margin="0,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" Background="White" Style="{DynamicResource TextBoxS1}" RenderTransformOrigin="0.718,0.432" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Center" Grid.Column="1"  />
+        <TextBox MaxLength="19" x:Name="PasswordBox" Height="37" TextWrapping="Wrap" VerticalAlignment="Center" Width="188" Background="White" Style="{DynamicResource TextBoxS1}" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Center" Grid.Column="1"/>
         <Label Content="Логин" Margin="246,139,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.164,0.548" Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
         <Label Content="Пароль" Margin="236,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.568,1.231" FontSize="16" Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
-        <Button x:Name="LogBut"  Content="Войти" Margin="0,244,0,0" VerticalAlignment="Top" Width="96" RenderTransformOrigin="-0.027,-0.65" Height="32" Background="#FF4B85D8" Foreground="White" FontFamily="Segoe UI" FontSize="16" Style="{DynamicResource LogButton}" Click="LoginButton_Click" Grid.Column="1" HorizontalAlignment="Center"/>
+        <Button x:Name="LogBut" Content="Войти" Margin="0,244,0,0" VerticalAlignment="Top" Width="96" RenderTransformOrigin="-0.027,-0.65" Height="32" Background="#FFFDA913" Foreground="White" FontFamily="Segoe UI" FontSize="16" Style="{DynamicResource LogButton}" Click="LoginButton_Click" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold"/>
         <Label x:Name="ErrorLabel" Content="" HorizontalAlignment="Center" Margin="0,290,0,0" VerticalAlignment="Top" Grid.Column="1" FontSize="16" Foreground="Red" FontWeight="Bold"/>
         
     </Grid>

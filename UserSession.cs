@@ -46,7 +46,6 @@ namespace TicketSystem
                 var currentWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
                 LoginWindow lw = new LoginWindow();
                 currentWindow?.Close();
-                
                 lw.Show();
             }
 

@@ -49,14 +49,14 @@ namespace TicketSystem
                  Console.WriteLine(await response.Content.ReadAsStringAsync());
                 var myreq = JsonSerializer.Deserialize<List<MyReqAdd>>(await response.Content.ReadAsStringAsync());
                 
-                ReqIdTB.Text = "ID: "+ myreq[0].requestId;
-                ProblemNameTB.Text ="Название проблемы: "+ myreq[0].problemName;
-                DateTimeTB.Text ="Дата/время: "+ myreq[0].reqtime;
-                StatusTB.Text = "Статус: " + myreq[0].statusName;
-                PriorityTB.Text = "Приоритет: " + myreq[0].priorityName;
-                RoomTB.Text ="Помещение: " + myreq[0].room;
+                ReqIdTB.Text = ""+myreq[0].requestId;
+                ProblemNameTB.Text = myreq[0].problemName;
+                DateTimeTB.Text =""+ myreq[0].reqtime;
+                StatusTB.Text = myreq[0].statusName;
+                PriorityTB.Text = myreq[0].priorityName;
+                RoomTB.Text =myreq[0].room;
                 DescriptionTB.Text =  myreq[0].description;
-                if (myreq[0].username != null) ResponseTB.Text = $"От {myreq[0].username}\n" + myreq[0].responseContent;
+                if (myreq[0].username != null) ResponseTB.Text = $"От {myreq[0].username}:\n" + myreq[0].responseContent;
                 else ResponseTB.Text = "";
 
             }

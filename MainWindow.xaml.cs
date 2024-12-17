@@ -28,16 +28,21 @@ namespace TicketSystem
             Acc = new Account();
             Req = new Request();
             MainFrame.Content= Req;
+            backBut.Visibility = Visibility.Hidden;
         }
 
-        private void Button_Click_Page1(object sender, RoutedEventArgs e)
+        private void Button_Click_Req(object sender, RoutedEventArgs e)
         {
             MainFrame.Content = Req;
+            backBut.Visibility = Visibility.Hidden;
+            accBut.Visibility = Visibility.Visible;
         }
 
-        private void Button_Click_Page2(object sender, RoutedEventArgs e)
+        private void Button_Click_Acc(object sender, RoutedEventArgs e)
         {
             MainFrame.Content = Acc;
+            accBut.Visibility = Visibility.Hidden;
+            backBut.Visibility = Visibility.Visible;
         }
     }
 }

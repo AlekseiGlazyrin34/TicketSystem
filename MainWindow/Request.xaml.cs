@@ -58,7 +58,7 @@ namespace TicketSystem
                 MyReqButton.Background = new SolidColorBrush(Color.FromRgb(243, 243, 214));
                 MyReqButton.Foreground = Brushes.Black;
                 CrReqButText.Foreground = Brushes.White;
-                CrReqButton.Background = new SolidColorBrush(Color.FromRgb(76, 175, 80));
+                CrReqButton.Background = new SolidColorBrush(Color.FromRgb(35, 181, 41));
                 CrReqButton.Foreground = Brushes.Black;
                 MyReqButText.Foreground = Brushes.Black;
                 RequestFrame.Content = MR;
