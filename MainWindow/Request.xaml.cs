@@ -20,17 +20,31 @@ namespace TicketSystem
     /// </summary>
     public partial class Request : Page
     {
+        
         private CreateRequest CR = new CreateRequest();
-        private MyRequests MR = new MyRequests();
         private Account Acc = new Account();
+        private MyRequests MR;
+        private AdminRequest AMR;
+
         public Request()
         {
             InitializeComponent();
+           
             RequestFrame.Content = CR;
+
+            if (UserSession.Instance.Role == "User")
+            {
+                MR = new MyRequests();
+            }
+            if (UserSession.Instance.Role == "Admin")
+            {
+                AMR = new AdminRequest();
+            }
             CrReqButton.Background = new SolidColorBrush(Color.FromRgb(243,243,214));
             CrReqButton.Foreground = Brushes.Black;
             MyReqButton.Background = new SolidColorBrush(Color.FromRgb(129, 166, 240));
             MyReqButton.Foreground = Brushes.Black;
+
         }
 
         private void CrReqButton_Click(object sender, RoutedEventArgs e)
@@ -54,7 +68,7 @@ namespace TicketSystem
 
         private void MyReqButton_Click(object sender, RoutedEventArgs e)
         {
-            if (RequestFrame.Content != MR)
+            if (RequestFrame.Content != MR || RequestFrame.Content != AMR)
             {
                 MyReqButton.Background = new SolidColorBrush(Color.FromRgb(243, 243, 214));
                 MyReqButton.Foreground = Brushes.Black;
@@ -62,7 +76,8 @@ namespace TicketSystem
                 CrReqButton.Background = new SolidColorBrush(Color.FromRgb(35, 181, 41));
                 CrReqButton.Foreground = Brushes.Black;
                 MyReqButText.Foreground = Brushes.Black;
-                RequestFrame.Content = MR;
+                if (MR != null) RequestFrame.Content = MR;
+                if (AMR != null) RequestFrame.Content = AMR;
                 Line1.Visibility = Visibility.Hidden;
                 Line2.Visibility = Visibility.Hidden;
                 Line3.Visibility = Visibility.Visible;
@@ -74,5 +89,7 @@ namespace TicketSystem
         {
             RequestFrame.Content = Acc;            
         }
+
+        
     }
 }

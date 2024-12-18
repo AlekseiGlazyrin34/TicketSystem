@@ -9,33 +9,33 @@
       Title="CreateRequest">
     <Grid Background="#FFF3F3D6">
 
-        <Label Content="Создание запроса" HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="24" Margin="0,31,0,0" FontWeight="Bold"/>
+        <Label Content="Создание запроса" HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="24" Margin="0,10,0,0" FontWeight="Bold"/>
 
-        <Border CornerRadius="10" BorderThickness="6" BorderBrush="#FF4CAF50" Padding="0" Margin="0,92,0,45" HorizontalAlignment="Center" Width="692">
+        <Border CornerRadius="10" BorderThickness="6" BorderBrush="#FF4CAF50" Padding="0" Margin="0,74,0,20" HorizontalAlignment="Center" Width="692">
             <Border CornerRadius="7" BorderThickness="6" BorderBrush="White" Padding="0"  HorizontalAlignment="Center" Width="682" Margin="0,0,0,-1">
                 <Grid Background="White" Width="720" Margin="0,0,-50,-1">
 
 
                     <Label Grid.Column="0" Content="Название проблемы" HorizontalAlignment="Left" FontSize="30" Margin="34,23,0,0" Height="52" VerticalAlignment="Top" Width="294"/>
-                    <TextBox MaxLength="15" x:Name="ProblemName" VerticalContentAlignment="Center" HorizontalAlignment="Left" FontSize="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="30" Margin="328,34,0,0"/>
-                    <Label Grid.Column="0" Content="Помещение" FontSize="30" Margin="152,64,392,0" Height="52" VerticalAlignment="Top"/>
-                    <TextBox MaxLength="15" x:Name="Room" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" TextAlignment="Justify" TextWrapping="Wrap"  Width="200" Height="30" Margin="328,75,0,0"/>
+                    <TextBox VerticalContentAlignment="Center" TextAlignment="Justify" BorderThickness="2" MaxLength="15" x:Name="ProblemName" HorizontalAlignment="Left" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="30" Margin="328,34,0,0"/>
+                    <Label  Grid.Column="0" Content="Помещение" FontSize="30" Margin="152,64,392,0" Height="52" VerticalAlignment="Top"/>
+                    <TextBox VerticalContentAlignment="Center"  BorderThickness="2" MaxLength="15" x:Name="Room" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" TextAlignment="Justify" TextWrapping="Wrap"  Width="200" Height="30" Margin="328,75,0,0"/>
                     <Label Grid.Column="0" Content="Приоритет" HorizontalAlignment="Left" FontSize="30" Margin="166,104,0,0" VerticalAlignment="Top" Height="52" Width="162" />
-                    <ComboBox x:Name="Priority" HorizontalAlignment="Left"  VerticalAlignment="Top"  Width="200" Height="30" Margin="328,119,0,0" FontSize="20">
-                        <TextBlock>Отложенный</TextBlock>
+                    <ComboBox VerticalContentAlignment="Center" x:Name="Priority" HorizontalAlignment="Left"  VerticalAlignment="Top"  Width="200" Height="30" Margin="328,117,0,0" FontSize="20" >
+                        <TextBlock >Отложенный</TextBlock>
                         <TextBlock>Срочный</TextBlock>
                         <TextBlock>Критический</TextBlock>
                     </ComboBox>
 
-                    <Label Content="Дополнительное описание" HorizontalAlignment="Left" Height="52"  FontSize="30" Margin="152,152,0,304" />
-                    <TextBox FontSize="16" MaxLength="300" x:Name="Additional" HorizontalAlignment="Left" VerticalAlignment="Top"  TextWrapping="Wrap"  Height="152" Width="368" Margin="160,204,0,0" />
-                    <Button Style="{DynamicResource CrReqButton}" x:Name="ReqButton" Width="308" Background="#FF23B529" Foreground="White" FontFamily="Segoe UI" FontSize="16"  Click="ReqButton_Click" HorizontalAlignment="Left" BorderThickness="4" Height="80" Margin="190,369,0,59" >
+                    <Label Content="Дополнительное описание" HorizontalAlignment="Left" Height="52"  FontSize="30" Margin="152,-180,0,0" />
+                    <TextBox BorderThickness="2"  FontSize="16" MaxLength="300" x:Name="Additional" HorizontalAlignment="Left" VerticalAlignment="Top"  TextWrapping="Wrap"  Height="152" Width="368" Margin="160,212,0,0" />
+                    <Button Style="{DynamicResource CrReqButton}" x:Name="ReqButton" Width="308" Background="#FF23B529" Foreground="White" FontFamily="Segoe UI" FontSize="16"  Click="ReqButton_Click" HorizontalAlignment="Left" BorderThickness="4" Height="80" Margin="190,350,0,0" >
                         <Grid>
                             <Image x:Name="GifImage" HorizontalAlignment="Left" VerticalAlignment="Center" Width="20" Height="20" Margin="-19,0,0,0"  />
                             <Label FontSize="30" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-3,0,0">Отправить запрос</Label>
                         </Grid>
                     </Button>
-                    <Label Visibility="Hidden" x:Name="TextError" FontSize="20" Foreground="Red" Content="Первые 3 поля должны быть заполнены" FontWeight="Bold" Margin="132,463,164,0" ></Label>
+                    <Label Visibility="Hidden" x:Name="TextError" FontSize="20" Foreground="Red" Content="Первые 3 поля должны быть заполнены" FontWeight="Bold" Margin="132,499,164,19" ></Label>
 
                 </Grid>
             </Border>

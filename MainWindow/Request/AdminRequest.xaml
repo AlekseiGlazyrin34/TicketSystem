@@ -13,7 +13,7 @@
 
         <Border CornerRadius="10" BorderThickness="7" BorderBrush="#81a6f0" Padding="0" Margin="0,48,0,422" HorizontalAlignment="Center" Width="620">
             <Border CornerRadius="10" BorderThickness="6" BorderBrush="White"  Panel.ZIndex="2" Margin="-2,-2,-2,-2">
-                <ListView ScrollViewer.HorizontalScrollBarVisibility="Hidden" Name="MyListView" Width="600" BorderBrush="White" HorizontalAlignment="Center" Margin="0,-3,0,-1">
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Hidden" Name="MyListView" Width="600" BorderBrush="White" HorizontalAlignment="Center" Margin="0,-3,0,-1" MouseDoubleClick="MyListView_MouseDoubleClick">
                     <ListView.View >
                         <GridView >
                             <GridViewColumn Header="ID" DisplayMemberBinding="{Binding requestId}" Width="50" />
@@ -25,15 +25,16 @@
                 </ListView>
             </Border>
         </Border>
+
         <Border CornerRadius="10" BorderThickness="6" BorderBrush="#81a6f0" Padding="0" Margin="0,272,0,37" HorizontalAlignment="Center" Width="740">
             <Border CornerRadius="7" BorderThickness="6" BorderBrush="White" Padding="0" HorizontalAlignment="Center" Width="732">
-                <Grid  Width="720" Height="308">
+                <Grid  Width="720" Margin="0,16,0,-6">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="255*"/>
-                        <RowDefinition Height="53*"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="0*"/>
                     </Grid.RowDefinitions>
 
-                    <StackPanel Width="725" Background="White" Margin="0,-18,-5,-17" Grid.RowSpan="2" >
+                    <StackPanel Background="White" Margin="0,-18,-5,-17" Grid.RowSpan="2" >
 
                         <TextBlock FontSize="20" FontWeight="Bold" Text="Подробности" HorizontalAlignment="Center"/>
                         <StackPanel Orientation="Horizontal">
@@ -59,12 +60,24 @@
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Статус: " FontSize="18" FontWeight="Bold"/>
                             <TextBlock x:Name="StatusTB" Text="" FontSize="18"/>
+                            <ComboBox  VerticalContentAlignment="Center" x:Name="StatusCB"  VerticalAlignment="Top"  Width="160" Height="29"  FontSize="18" Visibility="Hidden">
+                                <TextBlock>Новый</TextBlock>
+                                <TextBlock>В процессе</TextBlock>
+                                <TextBlock>Завершен</TextBlock>
+                            </ComboBox>
                         </StackPanel>
                         <TextBlock  Text="Дополнителное описание:" FontSize="18" FontWeight="Bold"/>
                         <TextBox BorderThickness="2" BorderBrush="#81a6f0" TextWrapping="Wrap" x:Name="DescriptionTB"  IsReadOnly="True" Width="354" HorizontalAlignment="Left" FontSize="16" Height="147"/>
                     </StackPanel>
                     <TextBlock Text="Ответное сообщение от:" FontSize="18" Margin="391,22,53,203" FontWeight="Bold"/>
-                    <TextBox BorderThickness="2" BorderBrush="#81a6f0" TextWrapping="Wrap" x:Name="ResponseTB"  Width="309" HorizontalAlignment="Left" FontSize="18" Margin="391,77,0,0"/>
+                    
+                    <TextBox BorderThickness="2" BorderBrush="#81a6f0" TextWrapping="Wrap" x:Name="ResponseTB"  Width="309" HorizontalAlignment="Left" FontSize="18" Margin="391,77,0,89" IsReadOnly="True"/>
+                    <Button Style="{DynamicResource CrReqButton}" x:Name="SaveButton" Width="308" Height="60"  Foreground="White" FontFamily="Segoe UI" FontSize="16"   HorizontalAlignment="Left" BorderThickness="4" Margin="390,240,0,0" Click="SaveChanges">
+                        <Grid>
+                            <Image x:Name="GifImage" HorizontalAlignment="Left" VerticalAlignment="Center" Width="20" Height="20" Margin="-19,0,0,0"  />
+                            <Label FontSize="24" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-3,0,0">Сохранить изменения</Label>
+                        </Grid>
+                    </Button>
                 </Grid>
             </Border>
         </Border>
@@ -73,5 +86,44 @@
         </Button>
         <TextBlock x:Name="ResponseFrom" Text="" FontSize="18" Margin="432,345,45,297"/>
     </Grid>
+    <Page.Resources>
+        <Style x:Key="CrReqButton" TargetType="{x:Type Button}">
+            <Setter  Property="Background" Value="#FF81A6F0"/>
+            <Setter Property="BorderBrush" Value="#FF263BB1"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
 
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="15" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true"  >
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RenderTransformOrigin="-0.659,0.524"/>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#FF263BB1"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF263BB1"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#FF263BB1"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF263BB1"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FFADB2B5"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="#FF838383"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
 </Page>

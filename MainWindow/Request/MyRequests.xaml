@@ -11,7 +11,7 @@
     <Grid Background="#FFF3F3D6">
         <Label Content="Мои запросы" HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="24" Margin="0,10,0,0" FontWeight="Bold"/>
 
-        <Border CornerRadius="10" BorderThickness="7" BorderBrush="#81a6f0" Padding="0" Margin="0,48,0,422" HorizontalAlignment="Center" Width="620">
+        <Border CornerRadius="10" BorderThickness="7" BorderBrush="#81a6f0" Padding="0" Margin="0,59,0,411" HorizontalAlignment="Center" Width="620">
             <Border CornerRadius="10" BorderThickness="6" BorderBrush="White"  Panel.ZIndex="2" Margin="-2,-2,-2,-2">
                 <ListView ScrollViewer.HorizontalScrollBarVisibility="Hidden" Name="MyListView" Width="600" BorderBrush="White" HorizontalAlignment="Center" Margin="0,-3,0,-1" MouseDoubleClick="MyListView_MouseDoubleClick">
                     <ListView.View >
@@ -25,7 +25,7 @@
                 </ListView>
             </Border>
         </Border>
-        <Border CornerRadius="10" BorderThickness="6" BorderBrush="#81a6f0" Padding="0" Margin="0,272,0,37" HorizontalAlignment="Center" Width="740">
+        <Border CornerRadius="10" BorderThickness="6" BorderBrush="#81a6f0" Padding="0" Margin="0,290,0,27" HorizontalAlignment="Center" Width="740">
             <Border CornerRadius="7" BorderThickness="6" BorderBrush="White" Padding="0" HorizontalAlignment="Center" Width="732">
                 <Grid  Width="720" Height="308">
                     <Grid.RowDefinitions>

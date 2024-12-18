@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TicketSystem"
       mc:Ignorable="d" d:DesignWidth="800"
-      Title="Request" Height="724">
+      Title="Request" Height="800">
 
     
         <Grid Background="#FFF3F3D6">
@@ -33,7 +33,7 @@
                     </Grid>
                 </Button>
             </StackPanel>
-            <Frame Height="674" x:Name="RequestFrame" NavigationUIVisibility="Hidden" />
+            <Frame Height="674" x:Name="RequestFrame" NavigationUIVisibility="Hidden" VerticalAlignment="Top"/>
         </DockPanel>
     </Grid>
     
