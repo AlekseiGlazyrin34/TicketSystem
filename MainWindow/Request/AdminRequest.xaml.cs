@@ -17,9 +17,7 @@ using System.Windows.Shapes;
 
 namespace TicketSystem
 {
-    /// <summary>
-    /// Логика взаимодействия для Page1.xaml
-    /// </summary>
+    
     public partial class AdminRequest : Page
     {
         private List<MyReqAdd> myreq;
@@ -45,7 +43,6 @@ namespace TicketSystem
                 var request = new HttpRequestMessage(HttpMethod.Get, $"https://localhost:7006/loadadd-data?reqid={selectedRequest.requestId}");
 
                 var response = await UserSession.Instance.SendAuthorizedRequest(() => { return request; });
-                Console.WriteLine(await response.Content.ReadAsStringAsync());
                 myreq = JsonSerializer.Deserialize<List<MyReqAdd>>(await response.Content.ReadAsStringAsync());
 
                 ReqIdTB.Text = "" + myreq[0].requestId;
@@ -76,7 +73,6 @@ namespace TicketSystem
                     StatusTB.Text = myreq[0].statusName;
                     StatusCB.Visibility = Visibility.Hidden;
                     SaveButton.IsEnabled = false;
-
                 }
             }
         }
@@ -98,8 +94,11 @@ namespace TicketSystem
                     responseContent = ResponseTB.Text
                 };
                 request.Content = new StringContent(JsonSerializer.Serialize(data), Encoding.UTF8, "application/json");
+
                 return request;
-        });
+            });
+            if (response.IsSuccessStatusCode) MessageBox.Show("Изменения сохранены", "Запрос", MessageBoxButton.OK, MessageBoxImage.Information);
+            else MessageBox.Show("Сервер не отвечает. Повторите попытку позже", "Запрос", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }

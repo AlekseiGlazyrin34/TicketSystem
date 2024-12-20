@@ -72,7 +72,6 @@ namespace TicketSystem
             }
             else
             {
-                Console.WriteLine("Proval "+ response.StatusCode);
                 GifImage.Visibility = Visibility.Collapsed;
                 ReqButton.IsEnabled = true;
             }

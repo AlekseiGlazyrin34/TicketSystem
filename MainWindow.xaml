@@ -7,8 +7,9 @@
       mc:Ignorable="d" 
       Height="800"
       Width="800"
-      MaxHeight="800" MaxWidth="800">
-    <ScrollViewer x:Name="MyScrollViewer" VerticalScrollBarVisibility="Disabled">
+      MaxHeight="800" MaxWidth="800"
+      WindowStartupLocation="CenterScreen">
+    <ScrollViewer x:Name="MyScrollViewer" VerticalScrollBarVisibility="Visible">
         <Grid Background="#FFF3F3D6">
 
             <DockPanel Grid.ColumnSpan="2">

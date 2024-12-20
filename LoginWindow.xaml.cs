@@ -26,6 +26,7 @@ namespace TicketSystem
         public LoginWindow()
         {
             InitializeComponent();
+            
         }
         private async Task Login()
         {
@@ -43,11 +44,8 @@ namespace TicketSystem
                 Login = loginCont,
                 Password = passwordCont
             };
-            // создаем JsonContent
             string jsonData = JsonSerializer.Serialize(data);
-            // отправляем запрос
             var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            // определяем данные запроса
             try
             {
                 var response = await httpClient.PostAsync("https://localhost:7006/login", content);

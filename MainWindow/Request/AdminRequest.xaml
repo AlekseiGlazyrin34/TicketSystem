@@ -84,7 +84,7 @@
         <Button  Margin="670,-530,0,0" Background="#00C51111" BorderBrush="#00707070"  Height="40" Width="40" Click="RefreshButton_Click">
             <Image Source="/images/refresh.png"></Image>
         </Button>
-        <TextBlock x:Name="ResponseFrom" Text="" FontSize="18" Margin="432,345,45,297"/>
+        <TextBlock x:Name="ResponseFrom" Text="" FontSize="18" Margin="426,345,51,297"/>
     </Grid>
     <Page.Resources>
         <Style x:Key="CrReqButton" TargetType="{x:Type Button}">
