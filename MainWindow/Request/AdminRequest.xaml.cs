@@ -46,22 +46,35 @@ namespace TicketSystem
                 myreq = JsonSerializer.Deserialize<List<MyReqAdd>>(await response.Content.ReadAsStringAsync());
 
                 ReqIdTB.Text = "" + myreq[0].requestId;
+                UsernameTB.Text = "" + myreq[0].username;
                 ProblemNameTB.Text = myreq[0].problemName;
                 DateTimeTB.Text = "" + myreq[0].reqtime;
                 PriorityTB.Text = myreq[0].priorityName;
+                switch (myreq[0].priorityName)
+                {
+                    case "Отложенный":
+                        PriorityTB.Foreground = Brushes.Green;
+                        break;
+                    case "Срочный":
+                        PriorityTB.Foreground = Brushes.Orange;
+                        break;
+                    case "Критический":
+                        PriorityTB.Foreground = Brushes.Red;
+                        break;
+                }
                 RoomTB.Text = myreq[0].room;
                 DescriptionTB.Text = myreq[0].description;
                 if (myreq[0].username != null && myreq[0].responseContent!=null)
                 {
-                    ResponseFrom.Text = myreq[0].username;
+                    ResponseFrom.Text = myreq[0].respusername;
                     ResponseTB.Text = myreq[0].responseContent;
                 }
                 else
                 {
                    ResponseTB.Text = "";
-                    ResponseFrom.Text = "";
+                   ResponseFrom.Text = "";
                 }
-                if (myreq[0].statusName == "Новый" || myreq[0].username == UserSession.Instance.Username) {
+                if (myreq[0].statusName == "Новый" || myreq[0].respusername == UserSession.Instance.Username) {
                     ResponseTB.IsReadOnly = false;
                     StatusCB.Text = myreq[0].statusName;
                     StatusCB.Visibility = Visibility.Visible;
@@ -72,6 +85,7 @@ namespace TicketSystem
                 {
                     StatusTB.Text = myreq[0].statusName;
                     StatusCB.Visibility = Visibility.Hidden;
+                    ResponseTB.IsReadOnly= true;
                     SaveButton.IsEnabled = false;
                 }
             }

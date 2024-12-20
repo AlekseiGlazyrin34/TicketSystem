@@ -54,7 +54,7 @@
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock  Text="Приоритет: " FontSize="18" FontWeight="Bold"/>
-                            <TextBlock x:Name="PriorityTB" Text="" FontSize="18"/>
+                            <TextBlock x:Name="PriorityTB"  Text="" FontSize="18" FontWeight="Bold"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Статус: " FontSize="18" FontWeight="Bold"/>

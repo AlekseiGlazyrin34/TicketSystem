@@ -55,23 +55,23 @@ namespace TicketSystem
         {
             var client = new HttpClient();
 
-            // Устанавливаем токен в заголовок
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", this.AccessToken);
             var request = requestFactory();
-            var response = await client.SendAsync(request);
+              var response = await client.SendAsync(request);
 
-            // Проверяем, не истёк ли токен
-            if (response.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                await RefreshAccessToken(); // Обновляем токен
 
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", this.AccessToken);
-                request = requestFactory();
-                response = await client.SendAsync(request);
-            }
-
-            return response;
+                if (response.StatusCode == HttpStatusCode.Unauthorized)
+                {
+                    await RefreshAccessToken();
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", this.AccessToken);
+                    request = requestFactory();
+                    response = await client.SendAsync(request);
+                }
+                return response;
         }
+            
+
+            
         public void Clear()
         {
             AccessToken = null;

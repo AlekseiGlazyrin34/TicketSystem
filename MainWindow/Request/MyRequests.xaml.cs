@@ -1,19 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace TicketSystem
 {
@@ -54,6 +48,17 @@ namespace TicketSystem
                 DateTimeTB.Text =""+ myreq[0].reqtime;
                 StatusTB.Text = myreq[0].statusName;
                 PriorityTB.Text = myreq[0].priorityName;
+                switch (myreq[0].priorityName){
+                    case "Отложенный":
+                        PriorityTB.Foreground = Brushes.Green;
+                        break;
+                    case "Срочный":
+                        PriorityTB.Foreground = Brushes.Orange;
+                        break;
+                    case "Критический":
+                        PriorityTB.Foreground = Brushes.Red;
+                        break;
+                }
                 RoomTB.Text =myreq[0].room;
                 DescriptionTB.Text =  myreq[0].description;
                 if (myreq[0].username != null)
@@ -88,6 +93,7 @@ namespace TicketSystem
         public DateTime reqtime { get; set; }
         public string room { get; set; }
         public string? responseContent { get; set; }
-        public string? username { get; set; }
+        public string? respusername { get; set; }
+        public string username { get; set; }
     }
 }

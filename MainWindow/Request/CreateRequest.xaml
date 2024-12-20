@@ -22,9 +22,9 @@
                     <TextBox VerticalContentAlignment="Center"  BorderThickness="2" MaxLength="15" x:Name="Room" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" TextAlignment="Justify" TextWrapping="Wrap"  Width="200" Height="30" Margin="328,75,0,0"/>
                     <Label Grid.Column="0" Content="Приоритет" HorizontalAlignment="Left" FontSize="30" Margin="166,104,0,0" VerticalAlignment="Top" Height="52" Width="162" />
                     <ComboBox VerticalContentAlignment="Center" x:Name="Priority" HorizontalAlignment="Left"  VerticalAlignment="Top"  Width="200" Height="30" Margin="328,117,0,0" FontSize="20" >
-                        <TextBlock >Отложенный</TextBlock>
-                        <TextBlock>Срочный</TextBlock>
-                        <TextBlock>Критический</TextBlock>
+                        <TextBlock Foreground="Green" FontWeight="Bold" >Отложенный</TextBlock>
+                        <TextBlock Foreground="Orange" FontWeight="Bold">Срочный</TextBlock>
+                        <TextBlock Foreground="Red" FontWeight="Bold">Критический</TextBlock>
                     </ComboBox>
 
                     <Label Content="Дополнительное описание" HorizontalAlignment="Left" Height="52"  FontSize="30" Margin="152,-180,0,0" />
