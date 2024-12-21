@@ -40,7 +40,7 @@ namespace TicketSystem
                 var request = new HttpRequestMessage(HttpMethod.Get, $"https://localhost:7006/loadadd-data?reqid={selectedRequest.requestId}");
                 
                 var response = await UserSession.Instance.SendAuthorizedRequest(() => { return request; });
-                 Console.WriteLine(await response.Content.ReadAsStringAsync());
+                 
                 var myreq = JsonSerializer.Deserialize<List<MyReqAdd>>(await response.Content.ReadAsStringAsync());
                 
                 ReqIdTB.Text = ""+myreq[0].requestId;
@@ -61,12 +61,16 @@ namespace TicketSystem
                 }
                 RoomTB.Text =myreq[0].room;
                 DescriptionTB.Text =  myreq[0].description;
-                if (myreq[0].username != null)
+                if (myreq[0].respusername != null)
                 {
-                    ResponseFrom.Text=myreq[0].username;
+                    ResponseFrom.Text = myreq[0].respusername;
                     ResponseTB.Text = myreq[0].responseContent;
                 }
-                else ResponseTB.Text = "";
+                else
+                {
+                    ResponseTB.Text = "";
+                    ResponseFrom.Text = "";
+                }
 
             }
         }
