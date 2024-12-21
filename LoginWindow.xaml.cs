@@ -6,6 +6,8 @@ using System.Text.Json;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 
 namespace TicketSystem
@@ -83,6 +85,13 @@ namespace TicketSystem
             await Login();
             LogBut.IsEnabled = true;
         }
-        
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                LogBut.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            }
+        }
+
     }
 }
